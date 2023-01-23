@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Payment Page</title>
+</head>
+<body>
+
+    <div class="container-card">
+        <div id="frontcard">
+            <img id="imgfront" src="images/bg-card-front.png" alt="frontcardface">
+            <img id= "logocard" src="images/card-logo.svg" alt="card-logo">
+            <p id="numdisplay">0000 0000 0000 0000</p>
+            <p id="namedisplay">NOME DO TITULAR</p>
+            <p id="datedisplay">MM/AA</p>
+        </div>
+        <div id="backcard">
+            <img src="images/bg-card-back.png" alt="backcardface">
+            <p id="cvcdisplay">000</p>
+        </div>
+    </div>
+
+    <div class="container-form">
+        <form class="formcard">
+            <h1>Titular do Cartão</h1>
+            <input type="text" name="namecard" id="namecard" placeholder="Giosepe Camole Kanti Ver Du'Rosengole" oninput="UpdateName()" required>
+            <h1>Número do Cartão</h1>
+            <input type="text" name="numcard" id="numcard" maxlength="16" placeholder="0000 0000 0000 0000" oninput="UpdateNum()" required>
+            <div id="inputdate">
+                <h1>Data Val.</h1>
+                <h1>(MM/AA)</h1>
+                <input type="text" name="monthcard" id="monthcard" placeholder="MM" min="1" max="12" inputmode="numeric" maxlength="2" pattern="\d*" oninput="UpdateDate()" required minlength="2">
+                <input type="text" name="yearcard" id="yearcard" placeholder="AA" min="23" max="99" inputmode="numeric" oninput="UpdateDate()" required maxlength="2" minlength="2">
+            </div>
+            <div id="inputcvc">
+                <h1>CVC</h1>
+                <input type="text" name="cvccard" id="cvccard" placeholder="969" min="001" max="999" inputmode="numeric" oninput="UpdateCvc()" required onfocus="TradeFocusCard()" onblur="RemoveTrade()" maxlength="3" minlength="3">
+            </div>
+            <button type="submit" id="confirm" onclick="VerifyInputs()">Confirmar</button>
+        </form>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
